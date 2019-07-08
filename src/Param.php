@@ -76,7 +76,8 @@ class Param
             $validateFileMap = $this->getDirPhpFile($validateFilePath);
             $validateFile = $this->getValidateFile($validate[0]['validateModel'],$validateFileMap);
             if ($validateFile == null) return;
-            $this->rule = str_replace(env('APP_PATH'),env('APP_NAMESPACE').'/',trim($validateFile,$this->ext));
+            $this->rule = str_replace($this->ext,'',$validateFile);
+            $this->rule = str_replace(env('APP_PATH'),env('APP_NAMESPACE').'/', $this->rule);
         }
         $this->rule = str_replace('/','\\',$this->rule);
     }
