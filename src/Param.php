@@ -71,7 +71,7 @@ class Param
         if (substr($validate[0]['validateModel'],0,1) == '/' or substr($validate[0]['validateModel'],0,1) == '\\'){
             $this->rule = $validate[0]['validateModel'];
         }else{
-            $validate_root_path = empty(config('lin.validate_root_path')) ? $this->default_path :config('lin.validate_root_path');
+            $validate_root_path = empty(config('trr.validate_root_path')) ? $this->default_path :config('trr.validate_root_path');
             $validateFilePath = env('APP_PATH').$validate_root_path;
             $validateFileMap = $this->getDirPhpFile($validateFilePath);
             $validateFile = $this->getValidateFile($validate[0]['validateModel'],$validateFileMap);
