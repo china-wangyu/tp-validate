@@ -107,6 +107,7 @@ class Param
     // 设置@param模式
     public function setParamMode(array $param):void {
         foreach ($param as $item){
+            if(empty($item['rule'])) continue;
             $this->setField($item['name'],$item['doc']);
             $this->setRule($item['name'],$item['rule']);
         }
